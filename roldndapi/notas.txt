@@ -1,0 +1,6 @@
+rails generate scaffold Spell name:string url:string level:integer desc:string clases:string
+
+bundle install
+rails server
+
+        docker exec -it superrolweb-api-1 bash
