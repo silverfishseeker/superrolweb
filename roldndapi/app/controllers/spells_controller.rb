@@ -5,7 +5,9 @@ class SpellsController < ApplicationController
   def index
     @spells = Spell.all
 
+    Spell.source_update
     render json: @spells
+    # render json: DndApiService.new.fetch_spell("antilife-shell")
   end
 
   # GET /spells/1
