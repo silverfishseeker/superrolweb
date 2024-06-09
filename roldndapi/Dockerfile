@@ -13,13 +13,6 @@ RUN bundle install
 # Copia el resto de la aplicación al contenedor
 COPY . .
 
-# # Precompila los assets de la aplicación
-# RUN RAILS_ENV=production rails assets:precompile
-
-# Configura variables de entorno para el modo de producción
-ENV RAILS_ENV=production
-ENV RACK_ENV=production
-
 # Define el comando para iniciar el servidor de Rails
 # Puto tmp (hay que borrarlo para evitar errores, ni idea de porqué)
 # iniciar rails

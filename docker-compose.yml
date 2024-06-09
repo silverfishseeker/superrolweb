@@ -11,13 +11,6 @@ services:
       - ./rolweb/db_data:/var/lib/postgresql/data
     # command: ["sleep", "infinity"]
 
-  dbapi:
-    image: postgres:15-alpine
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
-
   web:
     build: rolweb
     ports:
@@ -31,8 +24,6 @@ services:
     build: roldndapi
     ports:
       - "81:3000"
-    depends_on:
-      - dbapi
     # command: ["sleep", "infinity"]
 
 

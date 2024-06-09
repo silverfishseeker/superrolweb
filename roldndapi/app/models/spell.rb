@@ -20,7 +20,7 @@ class Spell < ApplicationRecord
             "#{sp["area_of_effect"] ? "Área de efecto: #{sp["area_of_effect"]["type"]}, #{sp["size"]}. " : ""}"\
             "#{sp["ritual"] ? "Ritual.": ""} #{sp["concentration"] ? "Concentración." : ""} "\
             "Tiempo de lanzamiento: #{sp["casting_time"]}. Tipo de ataque: #{sp["attack_type"]}. "\
-            "#{sp["damage"] ? "Daño: #{sp["damage"]["damage_type"]["name"]}, #{sp["damage"]["damage_at_slot_level"]}}. " : ""}"\
+            "#{sp["damage"] ? "Daño: #{sp["damage"]["damage_type"] ? sp["damage"]["damage_type"]["name"] : ""}, #{sp["damage"]["damage_at_slot_level"]}. " : ""}"\
             "Escuela: #{sp["school"]["name"]}"
         )
       end
