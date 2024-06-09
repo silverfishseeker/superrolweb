@@ -8,7 +8,7 @@ class Spell < ApplicationRecord
         sp = das.fetch_spell(index)
         Spell.create(
           name: sp["name"],
-          url: sp["url"],
+          index: sp["index"],
           level: sp["level"], 
           clases:
             sp["classes"].map{ |clase| clase["name"] }.join(", ") +

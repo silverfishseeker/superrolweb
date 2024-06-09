@@ -38,6 +38,7 @@ gem "bootsnap", require: false
 
 gem 'pg'
 gem 'httparty'
+gem 'rest-client'
 
 
 group :development, :test do
