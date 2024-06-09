@@ -1,12 +1,15 @@
 class SpellsController < ApplicationController
   before_action :set_spell, only: %i[ show update destroy ]
 
+  def reset
+    Spell.all.each { |spell| spell.destroy }
+    Spell.source_update
+    index
+  end
   # GET /spells
   def index
     @spells = Spell.all
-
     render json: @spells
-    # render json: DndApiService.new.fetch_spell("antilife-shell")
   end
 
   # GET /spells/1
