@@ -50,6 +50,6 @@ class SpellsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def spell_params
-      params.require(:spell).permit(:name, :index, :url, :level, :desc, :clases)
+      params.permit(:name, :level, :desc, :clases)
     end
 end

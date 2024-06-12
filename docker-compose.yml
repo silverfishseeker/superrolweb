@@ -17,13 +17,19 @@ services:
       - "80:3000"
     depends_on:
       - db
+    volumes:
+      - ./rolweb:/app
 
   api:
     build: roldndapi
     ports:
       - "81:3000"
+    volumes:
+      - ./roldndapi:/app
     # command: ["sleep", "infinity"]
 
 
 volumes:
   db_data:
+  rolweb:
+  roldndapi:

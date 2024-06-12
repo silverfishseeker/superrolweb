@@ -8,6 +8,7 @@ class Spell < ApplicationRecord
         sp = das.fetch_spell(index)
         Spell.create(
           name: sp["name"],
+          url: "https://www.dnd5eapi.co/#{sp["url"]}", 
           index: sp["index"],
           level: sp["level"], 
           clases:
