@@ -4,3 +4,8 @@ bundle install
 rails server
 
         docker exec -it superrolweb-api-1 bash
+        rails generate migration CreateJoinTableSpellsClases
+        rails generate migration CreateJoinTableSpellsMagicschools
+
+netstat -ano | findstr :80
+tasklist /FI "PID eq 6028"

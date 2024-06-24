@@ -10,16 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_09_101607) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_24_161009) do
+  create_table "clases", force: :cascade do |t|
+    t.string "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "clases_spells", id: false, force: :cascade do |t|
+    t.integer "spell_id", null: false
+    t.integer "clase_id", null: false
+  end
+
+  create_table "magicschools", force: :cascade do |t|
+    t.string "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "magicschools_spells", id: false, force: :cascade do |t|
+    t.integer "spell_id", null: false
+    t.integer "magicschool_id", null: false
+  end
+
   create_table "spells", force: :cascade do |t|
     t.string "name"
     t.string "url"
     t.integer "level"
     t.string "desc"
-    t.string "clases"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "index"
   end
 
 end

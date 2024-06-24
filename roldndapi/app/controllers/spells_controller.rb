@@ -8,13 +8,19 @@ class SpellsController < ApplicationController
   end
   # GET /spells
   def index
-    @spells = Spell.pluck(:id, :name).map { |id, name| { id: id, name: name } }
-    render json: @spells
+    render json: Spell.pluck(:id, :name).map { |id, name| { name: name, url: "/spells/#{id}" } }
   end
 
   # GET /spells/1
   def show
-    render json: @spell
+    render json: {
+      "name": @spell.name,
+      "level": @spell.level,
+      "clases": @spell.clases.map { |clase| clase.nombre },
+      "magic_school": @spell.magicschools.map { |ms| ms.nombre }[0],
+      "desc": @spell.desc,
+      "url": @spell.url,
+    }
   end
 
   # POST /spells
