@@ -8,18 +8,19 @@ class SpellsController < ApplicationController
   end
   # GET /spells
   def index
-    render json: Spell.pluck(:id, :name).map { |id, name| { name: name, url: "/spells/#{id}" } }
+    render json: Spell.pluck(:id, :name).map { |id, name| { name: name, url: "/spells/#{id}", id: id } }
   end
 
   # GET /spells/1
   def show
     render json: {
-      "name": @spell.name,
-      "level": @spell.level,
-      "clases": @spell.clases.map { |clase| clase.nombre },
-      "magic_school": @spell.magicschools.map { |ms| ms.nombre }[0],
-      "desc": @spell.desc,
-      "url": @spell.url,
+      name: @spell.name,
+      id: @spell.id,
+      level: @spell.level,
+      clases: @spell.clases.map { |clase| clase.nombre },
+      magic_school: @spell.magicschools.map { |ms| ms.nombre }[0],
+      desc: @spell.desc,
+      url: @spell.url,
     }
   end
 
@@ -56,6 +57,6 @@ class SpellsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def spell_params
-      params.permit(:name, :level, :desc, :clases)
+      params.permit(:name, :level, :desc, :magicschool_ids, clase_ids: [])
     end
 end

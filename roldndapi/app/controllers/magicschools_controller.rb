@@ -1,6 +1,6 @@
 class MagicschoolsController < ApplicationController
   def index
-    render json: Magicschool.pluck(:id, :nombre).map { |id, nombre| { name: nombre, url: "/magicschools/#{id}" } }
+    render json: Magicschool.pluck(:id, :nombre).map { |id, nombre| { name: nombre, url: "/magicschools/#{id}", id: id } }
   end
 
   def show
