@@ -1,35 +1,10 @@
-version: '3'
+# docker-compose -f rolweb/docker-compose.yml -f docker-compose.yml up -d
+
 services:
-
-  db:
-    image: postgres:15-alpine
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
-    volumes:
-      - ./rolweb/db_data:/var/lib/postgresql/data
-    # command: ["sleep", "infinity"]
-
-  web:
-    build: rolweb
-    ports:
-      - "80:3000"
-    depends_on:
-      - db
-    volumes:
-      - ./rolweb:/app
-
   api:
-    build: roldndapi
+    build: ../roldndapi
     ports:
       - "81:3000"
     volumes:
-      - ./roldndapi:/app
+      - ../roldndapi:/app
     # command: ["sleep", "infinity"]
-
-
-volumes:
-  db_data:
-  rolweb:
-  roldndapi:
